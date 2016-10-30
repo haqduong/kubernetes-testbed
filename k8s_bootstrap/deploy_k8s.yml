@@ -1,0 +1,11 @@
+---
+- hosts: all
+  tasks:
+  - name: deploy kubelet
+    copy: src="bin/kubelet" dest="/usr/local/bin/kubelet" mode="755"
+    become: yes
+  - name: deploy kubelet start script
+    copy: src="scripts/start_kubelet.sh" dest="~/" mode="755"
+  - name: deploy kubectl
+    copy: src="bin/kubectl" dest="/usr/local/bin/kubectl" mode="755"
+    become: yes
